@@ -89,6 +89,7 @@ module Fluent::NorikraPlugin
             data = req.fetch(client())
           rescue => e
             log.error "failed to fetch", :norikra => "#{@host}:#{@port}", :method => req.method, :target => req.target, :error => e.class, :message => e.message
+            data = []
           end
 
           data.each do |tag, event_array|
